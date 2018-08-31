@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavisti.github.io/"/>
-  <updated>2018-08-30T05:10:16.061Z</updated>
+  <updated>2018-08-31T06:04:23.870Z</updated>
   <id>https://gavisti.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://gavisti.github.io/2018/08/31/test/"/>
+    <id>https://gavisti.github.io/2018/08/31/test/</id>
+    <published>2018-08-31T06:03:56.124Z</published>
+    <updated>2018-08-31T06:04:23.870Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="这是一个测试"><a href="#这是一个测试" class="headerlink" title="这是一个测试"></a>这是一个测试</h1><hr><p><strong>markdown</strong><br><em>测试</em></p><blockquote><ul><li>one</li><li>two</li><li>three</li><li>four</li></ul></blockquote><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1535703909112&di=db762752daf5a7341a1e5ef0d02c8f3f&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F4afbfbedab64034fcc48c323a2c379310a551d09.jpg"></p><p>图片测试：</p><p>#一级标题</p><blockquote><p>测试</p></blockquote><hr><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><p>风不问归期，只争朝夕</p><p>###三级标题</p><p>对影成三人</p><p>###书写一个质能守恒公式[^LaTeX]</p><p>$$E=mc^2$$</p><h3 id="高亮一段代码-code"><a href="#高亮一段代码-code" class="headerlink" title="高亮一段代码[^code]"></a>高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure><h3 id="7-绘制表格"><a href="#7-绘制表格" class="headerlink" title="7. 绘制表格"></a>7. 绘制表格</h3><table><thead><tr><th>项目</th><th style="text-align:right">价格</th><th style="text-align:center">数量</th></tr></thead><tbody><tr><td>计算机</td><td style="text-align:right">\$1600</td><td style="text-align:center">5</td></tr><tr><td>手机</td><td style="text-align:right">\$12</td><td style="text-align:center">12</td></tr><tr><td>管线</td><td style="text-align:right">\$1</td><td style="text-align:center">234</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;这是一个测试&quot;&gt;&lt;a href=&quot;#这是一个测试&quot; class=&quot;headerlink&quot; title=&quot;这是一个测试&quot;&gt;&lt;/a&gt;这是一个测试&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;markdown&lt;/strong&gt;&lt;br&gt;&lt;em&gt;测试&lt;/em&gt;&lt;/p&gt;
+&lt;blo
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
