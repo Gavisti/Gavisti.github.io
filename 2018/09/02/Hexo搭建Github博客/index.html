@@ -15,7 +15,7 @@
     <meta name="description" content="网页描述">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>About · Gavisti</title>
+    <title>Hexo搭建Github博客 · Gavisti</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -196,7 +196,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -204,6 +204,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >This is Gavisti</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Hexo搭建Github博客</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>This is Gavisti</a>
 </header>
@@ -222,23 +231,61 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/about.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            About
+            Hexo搭建Github博客
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1,195</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -339,17 +386,95 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        <h1 id="记录和分享"><a href="#记录和分享" class="headerlink" title="记录和分享"></a>记录和分享</h1><hr>
-<p>从初中开始就一直想着能有个博客来写一些东西。大学之前想要成为一个传媒工作者，因为摆弄文字一直是我热爱似乎还有些擅长的东西.但是很不凑巧，最终选择了明光桥边上的一所工科学校。很可惜，大学过了一半才开始把这个博客建起来，拖延症（其实就是懒）真的耽误我很多事情。开始想写博客，只是想着用文字去记录生活，能让自己去专注着做一些事情，日子不会过的那么飘。</p>
-<p>博客内容的话大致就写两块把，一个是一些学习教程，大体包括课程学习和自学的一些东西，这部分刚开始写应该会比较杂，就单纯拿来梳理和加深印象了；第二个就是一些随笔，吐槽，有时间的话会试着写写影评。</p>
-<p>博客界面clone一个大佬的，找了很多hexo的主题这个算是我比较喜欢的了。</p>
-<p>争取两天一更，逼着自己去动手去思考。</p>
-<p>还有一些没想到的，等想起来了再补上把。</p>
+        <h1 id="Hexo搭建Github博客"><a href="#Hexo搭建Github博客" class="headerlink" title="Hexo搭建Github博客"></a>Hexo搭建Github博客</h1><p>标签（空格分隔）： 杂</p>
+<hr>
+<p>##一.写在前面<br> 这是一篇简陋的Github+Hexo搭建独立博客的教程。因为自己比较事逼，不太喜欢主流的博客平台（折腾两三天以后很是后悔），加上教程还蛮多的，就跟着步骤做了下来。不算太麻烦，除了有一两个坑折磨人，整个流程还是很顺畅的。</p>
+<p> 大概是以下这几个步骤：</p>
+<ol>
+<li>安装Git，node.js</li>
+<li>安装Hexo</li>
+<li>初始化Hexo</li>
+<li>博客本地预览</li>
+<li>部署到Github</li>
+<li>测试</li>
+</ol>
+<p>##二.环境的安装</p>
+<p>###1.安装Git,node.js<br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git下载地址</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js下载地址</a><br>安装过程比较简洁就不多说了，有问题的话Goole一下</p>
+<p>###2.安装、初始化Hexo<br><strong>什么是Hexo</strong>：Hexo is a fast, simple &amp; powerful blog framework powered by Node.js.<br>基于node.js的快速、简洁且高效的博客框架</p>
+<p>打开Git Bash输入：</p>
+<pre><code>$ git config --global user.name&quot;yourname&quot;
+</code></pre><p>$ git config –global user.email”youremail”<br>利用npm命令安装Hexo：</p>
+<pre><code>$ npm install -g hexo-cli
+</code></pre><p>初始化hexo：<br>新建一个任意路径的文件夹（eg：Myblog)，按住shift右键点击打开命令行，输入：</p>
+<pre><code>hexo init blog
+</code></pre><p>稍微等待后若提示：</p>
+<pre><code>INFO Start blogging with Hexo!
+</code></pre><p>则初始化成功</p>
+<p>##三.博客本地预览<br>经过本地环境配置和hexo安装并初始化后会自动生存一个默认的本地博客界面。所以相关文件都在你刚刚新建的那个文件夹下。<br>按刚刚同样的操作在Myblog文件夹目录下打开命令行，输入：</p>
+<pre><code>$hexo clean
+</code></pre><p>$hexo g<br>    $hexo s<br>这样一来在浏览器中输入<a href="localhost:4000" target="_blank" rel="noopener">localhost:4000</a>便可预览生成的默认博客界面，应该是这样的：<br><img src="http://www.liuhaihua.cn/wp-content/uploads/2015/11/BziIBb2.png" alt="此处输入图片的描述"></p>
+<p>##四.配置到Github</p>
+<p>###1.新建一个仓库<br>名称为yourname.github.io</p>
+<p>###2.添加密钥<br>在cmd中输入：</p>
+<pre><code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot; #注意C是大写
+</code></pre><p>最后会生成一个<strong>id_rsa.pub</strong>文件（其实就是密钥），用记事本打开复制其内容。<br>打开GitHub配置ssh密钥的页面，新建一个将刚刚复制的密钥粘贴到key中，title可任意。<br>检测是否设置成功，在Git Bash中输入：</p>
+<pre><code>ssh git@github.com
+</code></pre><blockquote>
+<p><em>这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</em></p>
+</blockquote>
+<p>###3.配置博客</p>
+<p>####1.用sublime打开Myblog下的_config.yml文件<br>每一个参数冒号后都有一个空格，这是一个坑。<br>language和timezone都有规范。<br>另存为UTF-8格式避免中文乱码。<br>deploy参数中的repo设置为你刚刚新建仓库的地址<code>https://github.com/yourname/yourname.github.io</code></p>
+<p>###4.远程发布到Github<br>在Myblog下打开cmd，输入：</p>
+<pre><code>hexo clean
+hexo g
+hexo d
+</code></pre><p>等待片刻后跳出输入用户名和密码的界面，输入就好。这样你的博客就部署到你的GitHub上了，打开<a href="yourname.github.io">yourname.github.io</a>就可以看到默认的hexo界面</p>
+<p>这里面有一个大坑，在执行hexo g时一直出现一个错误，是由于今年GitHub修改了部分配置造成的，所以很多教程没有出现这个问题，找了好久才搞清楚原因，下载一个<strong>GCMW-1.14.0</strong>问题解决<br>‘’’问题链接找到补上’’’</p>
+<p>##五.更换主题<br>默认界面其实还满简洁的，但是功能稍微简陋了些自己又太菜不会修改，所以就到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo规范主题推荐</a>里面选了一款符合自己使用习惯的，然后到他的GitHub主页按照步骤一步步走下来就OK啦</p>
+<p>##六.推送博客<br>博客存放在Myblog source 的_post中，需要用markdown格式来写，所以不了解的小伙伴不妨花半个小时熟悉一下。还有很多专门的编辑器来提升书写体验。写完之后就需要更新博客，根据不同主题有不同的推送方式，这个自行查看。</p>
+<p>##七.最后<br>因为搭博客的过程十分凌乱，很多小细节和小问题很有可能被我略过了，整个思路脉络不是很清楚。如果以后有机会一点一点的补充吧。</p>
 
     </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://gavisti.github.io">Gavisti</a>
+            <p>原文链接：<a href="https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/">https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/</a>
+            <p>发表日期：<a href="https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/">September 2nd 2018, 10:12:31 am</a>
+            <p>更新日期：<a href="https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/">September 2nd 2018, 10:15:01 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/08/31/test/" title= "This is a test">
+                    <div class="prevTitle">This is a test</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -436,6 +561,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo搭建Github博客"><span class="toc-number">1.</span> <span class="toc-text">Hexo搭建Github博客</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -575,6 +718,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavisti.github.io/"/>
-  <updated>2018-08-31T07:48:31.324Z</updated>
+  <updated>2018-09-02T02:15:01.716Z</updated>
   <id>https://gavisti.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo搭建Github博客</title>
+    <link href="https://gavisti.github.io/2018/09/02/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/</id>
+    <published>2018-09-02T02:12:31.208Z</published>
+    <updated>2018-09-02T02:15:01.716Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo搭建Github博客"><a href="#Hexo搭建Github博客" class="headerlink" title="Hexo搭建Github博客"></a>Hexo搭建Github博客</h1><p>标签（空格分隔）： 杂</p><hr><p>##一.写在前面<br> 这是一篇简陋的Github+Hexo搭建独立博客的教程。因为自己比较事逼，不太喜欢主流的博客平台（折腾两三天以后很是后悔），加上教程还蛮多的，就跟着步骤做了下来。不算太麻烦，除了有一两个坑折磨人，整个流程还是很顺畅的。</p><p> 大概是以下这几个步骤：</p><ol><li>安装Git，node.js</li><li>安装Hexo</li><li>初始化Hexo</li><li>博客本地预览</li><li>部署到Github</li><li>测试</li></ol><p>##二.环境的安装</p><p>###1.安装Git,node.js<br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git下载地址</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js下载地址</a><br>安装过程比较简洁就不多说了，有问题的话Goole一下</p><p>###2.安装、初始化Hexo<br><strong>什么是Hexo</strong>：Hexo is a fast, simple &amp; powerful blog framework powered by Node.js.<br>基于node.js的快速、简洁且高效的博客框架</p><p>打开Git Bash输入：</p><pre><code>$ git config --global user.name&quot;yourname&quot;</code></pre><p>$ git config –global user.email”youremail”<br>利用npm命令安装Hexo：</p><pre><code>$ npm install -g hexo-cli</code></pre><p>初始化hexo：<br>新建一个任意路径的文件夹（eg：Myblog)，按住shift右键点击打开命令行，输入：</p><pre><code>hexo init blog</code></pre><p>稍微等待后若提示：</p><pre><code>INFO Start blogging with Hexo!</code></pre><p>则初始化成功</p><p>##三.博客本地预览<br>经过本地环境配置和hexo安装并初始化后会自动生存一个默认的本地博客界面。所以相关文件都在你刚刚新建的那个文件夹下。<br>按刚刚同样的操作在Myblog文件夹目录下打开命令行，输入：</p><pre><code>$hexo clean</code></pre><p>$hexo g<br>    $hexo s<br>这样一来在浏览器中输入<a href="localhost:4000" target="_blank" rel="noopener">localhost:4000</a>便可预览生成的默认博客界面，应该是这样的：<br><img src="http://www.liuhaihua.cn/wp-content/uploads/2015/11/BziIBb2.png" alt="此处输入图片的描述"></p><p>##四.配置到Github</p><p>###1.新建一个仓库<br>名称为yourname.github.io</p><p>###2.添加密钥<br>在cmd中输入：</p><pre><code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot; #注意C是大写</code></pre><p>最后会生成一个<strong>id_rsa.pub</strong>文件（其实就是密钥），用记事本打开复制其内容。<br>打开GitHub配置ssh密钥的页面，新建一个将刚刚复制的密钥粘贴到key中，title可任意。<br>检测是否设置成功，在Git Bash中输入：</p><pre><code>ssh git@github.com</code></pre><blockquote><p><em>这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</em></p></blockquote><p>###3.配置博客</p><p>####1.用sublime打开Myblog下的_config.yml文件<br>每一个参数冒号后都有一个空格，这是一个坑。<br>language和timezone都有规范。<br>另存为UTF-8格式避免中文乱码。<br>deploy参数中的repo设置为你刚刚新建仓库的地址<code>https://github.com/yourname/yourname.github.io</code></p><p>###4.远程发布到Github<br>在Myblog下打开cmd，输入：</p><pre><code>hexo cleanhexo ghexo d</code></pre><p>等待片刻后跳出输入用户名和密码的界面，输入就好。这样你的博客就部署到你的GitHub上了，打开<a href="yourname.github.io">yourname.github.io</a>就可以看到默认的hexo界面</p><p>这里面有一个大坑，在执行hexo g时一直出现一个错误，是由于今年GitHub修改了部分配置造成的，所以很多教程没有出现这个问题，找了好久才搞清楚原因，下载一个<strong>GCMW-1.14.0</strong>问题解决<br>‘’’问题链接找到补上’’’</p><p>##五.更换主题<br>默认界面其实还满简洁的，但是功能稍微简陋了些自己又太菜不会修改，所以就到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo规范主题推荐</a>里面选了一款符合自己使用习惯的，然后到他的GitHub主页按照步骤一步步走下来就OK啦</p><p>##六.推送博客<br>博客存放在Myblog source 的_post中，需要用markdown格式来写，所以不了解的小伙伴不妨花半个小时熟悉一下。还有很多专门的编辑器来提升书写体验。写完之后就需要更新博客，根据不同主题有不同的推送方式，这个自行查看。</p><p>##七.最后<br>因为搭博客的过程十分凌乱，很多小细节和小问题很有可能被我略过了，整个思路脉络不是很清楚。如果以后有机会一点一点的补充吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hexo搭建Github博客&quot;&gt;&lt;a href=&quot;#Hexo搭建Github博客&quot; class=&quot;headerlink&quot; title=&quot;Hexo搭建Github博客&quot;&gt;&lt;/a&gt;Hexo搭建Github博客&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： 杂&lt;/p&gt;
+&lt;hr&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>This is a test</title>
@@ -43,7 +66,7 @@
     <link href="https://gavisti.github.io/2018/08/30/hello-world/"/>
     <id>https://gavisti.github.io/2018/08/30/hello-world/</id>
     <published>2018-08-30T05:10:16.061Z</published>
-    <updated>2018-08-31T07:33:05.242Z</updated>
+    <updated>2018-09-01T04:16:37.485Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
