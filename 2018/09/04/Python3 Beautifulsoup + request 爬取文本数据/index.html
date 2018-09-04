@@ -15,7 +15,7 @@
     <meta name="description" content="网页描述">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Gavisti</title>
+    <title>Python3 Beautifulsoup + request 爬取文本数据 · Gavisti</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -196,12 +196,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >This is Gavisti</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Python3 Beautifulsoup + request 爬取文本数据</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>This is Gavisti</a>
 </header>
@@ -213,24 +224,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Python3 Beautifulsoup + request 爬取文本数据
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">496</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -333,16 +388,49 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>layout: 404<br>title: “[404]”<br>description: “May the Force be with you :&#41;”</p>
+        <h1 id="Python3-Beautifulsoup-request-爬取文本数据"><a href="#Python3-Beautifulsoup-request-爬取文本数据" class="headerlink" title="Python3 Beautifulsoup + request 爬取文本数据"></a>Python3 Beautifulsoup + request 爬取文本数据</h1><h2 id="一-什么是Beautifulsoup"><a href="#一-什么是Beautifulsoup" class="headerlink" title="一.什么是Beautifulsoup"></a>一.什么是Beautifulsoup</h2><blockquote>
+<p>Beautiful Soup: a library designed for screen-scraping HTML and XML.</p>
+</blockquote>
+<p>Beautiful Soup 是一个可以从HTML或XML文件中提取数据的Python库，简单来说，它能将HTML的标签文件解析成树形结构(DOM树)，把一个个标签解析为对象，然后方便地获取到指定标签的对应属性。</p>
+<h2 id="二-爬取流程"><a href="#二-爬取流程" class="headerlink" title="二.爬取流程"></a>二.爬取流程</h2><h3 id="1-导入库文件"><a href="#1-导入库文件" class="headerlink" title="1.导入库文件"></a>1.导入库文件</h3><pre><code>import requests
+import bs4
+</code></pre><h3 id="2-获取请求并创建对象"><a href="#2-获取请求并创建对象" class="headerlink" title="2.获取请求并创建对象"></a>2.获取请求并创建对象</h3><pre><code>target_url=requests.get(&apos;http://m.shicimingju.com/book/sanguoyanyi.html&apos;)
+#基本get请求
+soup=bs4.BeautifulSoup(target_url.text,&apos;html.parser&apos;)
+#target_url.text为html文件内容，soup为创建的DOM树对象
+</code></pre><h3 id="3-分析页面结构"><a href="#3-分析页面结构" class="headerlink" title="3.分析页面结构"></a>3.分析页面结构</h3><p>一百二十回的所有链接均在一个页面上，故只需要对一个页面进行爬取，不需要分页处理<br><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/222.PNG" alt="此处输入图片的描述"></p>
+<p>故先获得一百二十回每一回所在页面链接<br>打开控制台发现每一个href都在book-mulu类下的li标签中<br><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/1111.PNG" alt="此处输入图片的描述"></p>
+<pre><code>target_text=soup.select(&apos;.book-mulu li&apos;) #
+url_list = []
+for i in target_text:
+    url_list.append(i.a.get(&apos;href&apos;))
+</code></pre><p>  对于每一个子页面分别用beautifulsoup创建DOM对象，分析子页面url可知第n回所在页面url为</p>
+<blockquote>
+<p><a href="http://www.shicimingju.com/book/sanguoyanyi/n.html" target="_blank" rel="noopener">http://www.shicimingju.com/book/sanguoyanyi/n.html</a><br>  打开子页面控制台找到文本所在类下chapter_content<br>  <img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/3.PNG" alt="此处输入图片的描述"></p>
+</blockquote>
+<pre><code>download_text=[] #存储文本数据的列表
+for each_url in url_list:
+    download_url=requests.get(&apos;http://www.shicimingju.com&apos;+each_url)
+    small_soup=bs4.BeautifulSoup(download_url.text,&apos;html.parser&apos;)
+    small_text= small_soup.select(&apos;.chapter_content&apos;)
+    for i in small_text:
+        download_text.append(i.get_text()) #获取chapter_content类中的文本内容
+    print(&apos;爬取三国&apos;)
+</code></pre><h3 id="4-写入文件"><a href="#4-写入文件" class="headerlink" title="4.写入文件"></a>4.写入文件</h3><pre><code>f=open(&apos;sanguo.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;) #文本与脚本文件在同一目录下
+for i in download_text:
+    f.write(i)
+print(&apos;爬取完成&apos;)
+</code></pre><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/4.PNG" alt="此处输入图片的描述"></p>
+<h2 id="三-最后"><a href="#三-最后" class="headerlink" title="三.最后"></a>三.最后</h2><p>利用beautifulsoup爬取文本的流程较为简单，关键在于分析页面结构，找到所需爬取内容的位置。关于beautifulsoup 和rquests的用法涉及到的不多而且较为基础，这段时间我再做一些实践熟悉一下慢慢地把这两个库的基本用法总结出来把。</p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://gavisti.github.io">Gavisti</a>
-            <p>原文链接：<a href="https://gavisti.github.io/404.html">https://gavisti.github.io/404.html</a>
-            <p>发表日期：<a href="https://gavisti.github.io/404.html">August 31st 2018, 10:08:39 am</a>
-            <p>更新日期：<a href="https://gavisti.github.io/404.html">August 31st 2018, 10:08:39 am</a>
+            <p>原文链接：<a href="https://gavisti.github.io/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/">https://gavisti.github.io/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/</a>
+            <p>发表日期：<a href="https://gavisti.github.io/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/">September 4th 2018, 9:01:35 pm</a>
+            <p>更新日期：<a href="https://gavisti.github.io/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/">September 4th 2018, 9:04:33 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -352,6 +440,11 @@
             
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/09/02/Hexo搭建Github博客/" title= "Hexo搭建Github博客">
+                    <div class="prevTitle">Hexo搭建Github博客</div>
+                </a>
             
         </li>
     </ul>
@@ -455,6 +548,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python3-Beautifulsoup-request-爬取文本数据"><span class="toc-number">1.</span> <span class="toc-text">Python3 Beautifulsoup + request 爬取文本数据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-什么是Beautifulsoup"><span class="toc-number">1.1.</span> <span class="toc-text">一.什么是Beautifulsoup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-爬取流程"><span class="toc-number">1.2.</span> <span class="toc-text">二.爬取流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-导入库文件"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.导入库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-获取请求并创建对象"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.获取请求并创建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分析页面结构"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.分析页面结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-写入文件"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.写入文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-最后"><span class="toc-number">1.3.</span> <span class="toc-text">三.最后</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -615,6 +726,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
