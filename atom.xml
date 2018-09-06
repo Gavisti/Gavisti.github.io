@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gavisti.github.io/"/>
-  <updated>2018-09-04T13:04:33.816Z</updated>
+  <updated>2018-09-06T12:02:24.362Z</updated>
   <id>https://gavisti.github.io/</id>
   
   <author>
@@ -17,11 +17,74 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>随</title>
+    <link href="https://gavisti.github.io/2018/09/06/some%20words/"/>
+    <id>https://gavisti.github.io/2018/09/06/some words/</id>
+    <published>2018-09-06T12:02:24.362Z</published>
+    <updated>2018-09-06T12:02:24.362Z</updated>
+    
+    <content type="html"><![CDATA[<p>别灰心,任何值得你去的地方都不会有捷径。写程序也不例外,也不要怀疑自己是否有这方面的天分,编程界闹闹腾腾半个世纪也没闹出半个高斯或者半个牛顿,可见这件事本身不需要太高的天分。编程语言本身是人为创造的,与语言相随的还有语言的哲学和其相应的编程思维,如果忽略掉后面两者是学不好的。所以编程是个循序渐进的过程，就像你学习任何一门外语一样。学习一门外语，仅有词汇和语法是不够的，你还要理解这个国家的文化，需要这个语言的环境氛围，这是一个漫长的过程，不夸张的说，一门语言是通向一个世界的窗口，重要的是你是否愿意去为之付出。论坛里各种开开心心吹牛逼的各种编程大神，都是一行行代码积累出来的。如果编程哪天简单得像广告里如同吃饭喝水看部电影，那编程也就没有什么值得你去期待了。</p><p>===================================<br>今天在论坛上找曾经收录的帖子，突然发现一个不一样的贴叫做“学习编程好痛苦……..”。之所以奇怪是因为收录的帖子里基本都是很硬的干货，点进去才猛然回想起以前看到这段学长说的话的时候心里的感动，以前会因为入门的艰难而捏造出自己不适合的借口来逃避，事实上自己并没有付出应该有的努力，并没有去带着热爱而思考。<br>还是需要真真正正地去尝试。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;别灰心,任何值得你去的地方都不会有捷径。写程序也不例外,也不要怀疑自己是否有这方面的天分,编程界闹闹腾腾半个世纪也没闹出半个高斯或者半个牛顿,可见这件事本身不需要太高的天分。编程语言本身是人为创造的,与语言相随的还有语言的哲学和其相应的编程思维,如果忽略掉后面两者是学不好的
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Python3 Beautifulsoup + request 爬取文本数据</title>
+    <link href="https://gavisti.github.io/2018/09/06/Python3%20Beautifulsoup%20+%20request%20%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E5%9B%BE%E7%89%87/"/>
+    <id>https://gavisti.github.io/2018/09/06/Python3 Beautifulsoup + request 爬取豆瓣图片/</id>
+    <published>2018-09-06T12:00:14.255Z</published>
+    <updated>2018-09-06T12:02:35.627Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python3-Beautifulsoup-request-爬取豆瓣图片"><a href="#Python3-Beautifulsoup-request-爬取豆瓣图片" class="headerlink" title="Python3 Beautifulsoup + request 爬取豆瓣图片"></a>Python3 Beautifulsoup + request 爬取豆瓣图片</h1><h2 id="一-什么是Beautifulsoup"><a href="#一-什么是Beautifulsoup" class="headerlink" title="一.什么是Beautifulsoup"></a>一.什么是Beautifulsoup</h2><blockquote><p>Beautiful Soup: a library designed for screen-scraping HTML and XML.</p></blockquote><p>Beautiful Soup 是一个可以从HTML或XML文件中提取数据的Python库，简单来说，它能将HTML的标签文件解析成树形结构(DOM树)，把一个个标签解析为对象，然后方便地获取到指定标签的对应属性。</p><h2 id="二-爬取流程"><a href="#二-爬取流程" class="headerlink" title="二.爬取流程"></a>二.爬取流程</h2><h3 id="1-导入库文件"><a href="#1-导入库文件" class="headerlink" title="1.导入库文件"></a>1.导入库文件</h3><pre><code>import requestsimport bs4import os</code></pre><h3 id="2-创建基本参数"><a href="#2-创建基本参数" class="headerlink" title="2.创建基本参数"></a>2.创建基本参数</h3><pre><code>headers = {&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 6.1; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&apos;,&apos;referer&apos;:&quot;http://www.mm131.com/xinggan/530.html&quot;}main_url=&apos;https://www.douban.com/explore/column/4&apos; #豆瓣摄影页面title_url=[] #存储子页面链接img_url=[]  #存储图片链接</code></pre><h3 id="3-分析页面结构"><a href="#3-分析页面结构" class="headerlink" title="3.分析页面结构"></a>3.分析页面结构</h3><p>主页面有不同的主题文章，故首先获得每篇文章的子链接</p><pre><code>title_url_information=soup.select(&quot;.title a&quot;) #在类title下的a标签for i in title_url_information:    title_url.append(i.get(&apos;href&apos;))</code></pre><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/1.PNG" alt="此处输入图片的描述"></p><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/1.1.PNG" alt="此处输入图片的描述"></p><p>得到子链接以后打开每篇文章，找到每张图片的链接</p><pre><code>img_url_information=[]          #由于有两层循环，故标签img信息应该在循环外定义for each_url in url:            #遍历title_url    soup=create_soup(each_url)    info=soup.select(&quot;.photo_wrap img&quot;)        #在类photo_wrap下的img标签    for i in info:        img_url_information.append(i)for i in img_url_information:    img_url.append(i.get(&apos;src&apos;))</code></pre><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/2.PNG" alt="此处输入图片的描述"></p><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/2.2.PNG" alt="此处输入图片的描述"></p><h3 id="4-保存图片到本地文件夹"><a href="#4-保存图片到本地文件夹" class="headerlink" title="4.保存图片到本地文件夹"></a>4.保存图片到本地文件夹</h3><h4 id="1-创建文件夹"><a href="#1-创建文件夹" class="headerlink" title="1.创建文件夹"></a>1.创建文件夹</h4><pre><code>folder = &apos;img/&apos;if os.path.exists(folder) == False:  # 判断文件夹是否存在    os.makedirs(folder)  # 创建文件夹</code></pre><h4 id="2-写入文件夹"><a href="#2-写入文件夹" class="headerlink" title="2.写入文件夹"></a>2.写入文件夹</h4><pre><code>image_name = folder+str(index + 1) + &apos;.jpg&apos;  #定义每张图片名称with open(image_name, &apos;wb&apos;) as file:    file.write(response.content)</code></pre><h2 id="三-最后"><a href="#三-最后" class="headerlink" title="三.最后"></a>三.最后</h2><p>利用Beautifulsoup爬取图片的过程和爬取文本的类似，最重要的还是在于分享html结构，找到你需要的标签。因为没有绕过反爬措施，IP被封了，难受TAT。<br><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/3.3.PNG" alt="此处输入图片的描述"><br>魔高一尺，道高一丈，还有很多需要学习的，一些反反爬方法还得再看看。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Python3-Beautifulsoup-request-爬取豆瓣图片&quot;&gt;&lt;a href=&quot;#Python3-Beautifulsoup-request-爬取豆瓣图片&quot; class=&quot;headerlink&quot; title=&quot;Python3 Beautifulsou
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>随</title>
+    <link href="https://gavisti.github.io/2018/09/04/some_words/"/>
+    <id>https://gavisti.github.io/2018/09/04/some_words/</id>
+    <published>2018-09-04T13:16:17.023Z</published>
+    <updated>2018-09-04T13:22:38.699Z</updated>
+    
+    <content type="html"><![CDATA[<p>别灰心,任何值得你去的地方都不会有捷径。写程序也不例外,也不要怀疑自己是否有这方面的天分,编程界闹闹腾腾半个世纪也没闹出半个高斯或者半个牛顿,可见这件事本身不需要太高的天分。编程语言本身是人为创造的,与语言相随的还有语言的哲学和其相应的编程思维,如果忽略掉后面两者是学不好的。所以编程是个循序渐进的过程，就像你学习任何一门外语一样。学习一门外语，仅有词汇和语法是不够的，你还要理解这个国家的文化，需要这个语言的环境氛围，这是一个漫长的过程，不夸张的说，一门语言是通向一个世界的窗口，重要的是你是否愿意去为之付出。论坛里各种开开心心吹牛逼的各种编程大神，都是一行行代码积累出来的。如果编程哪天简单得像广告里如同吃饭喝水看部电影，那编程也就没有什么值得你去期待了。</p><p>===================================<br>今天在论坛上找曾经收录的帖子，突然发现一个不一样的贴叫做“学习编程好痛苦……..”。之所以奇怪是因为收录的帖子里基本都是很硬的干货，点进去才猛然回想起以前看到这段学长说的话的时候心里的感动，以前会因为入门的艰难而捏造出自己不适合的借口来逃避，事实上自己并没有付出应该有的努力，并没有去带着热爱而思考。<br>还是需要真真正正地去尝试。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;别灰心,任何值得你去的地方都不会有捷径。写程序也不例外,也不要怀疑自己是否有这方面的天分,编程界闹闹腾腾半个世纪也没闹出半个高斯或者半个牛顿,可见这件事本身不需要太高的天分。编程语言本身是人为创造的,与语言相随的还有语言的哲学和其相应的编程思维,如果忽略掉后面两者是学不好的
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python3 Beautifulsoup + request 爬取豆瓣图片</title>
     <link href="https://gavisti.github.io/2018/09/04/Python3%20Beautifulsoup%20+%20request%20%E7%88%AC%E5%8F%96%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE/"/>
     <id>https://gavisti.github.io/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/</id>
     <published>2018-09-04T13:01:35.649Z</published>
-    <updated>2018-09-04T13:04:33.816Z</updated>
+    <updated>2018-09-06T12:02:30.020Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Python3-Beautifulsoup-request-爬取文本数据"><a href="#Python3-Beautifulsoup-request-爬取文本数据" class="headerlink" title="Python3 Beautifulsoup + request 爬取文本数据"></a>Python3 Beautifulsoup + request 爬取文本数据</h1><h2 id="一-什么是Beautifulsoup"><a href="#一-什么是Beautifulsoup" class="headerlink" title="一.什么是Beautifulsoup"></a>一.什么是Beautifulsoup</h2><blockquote><p>Beautiful Soup: a library designed for screen-scraping HTML and XML.</p></blockquote><p>Beautiful Soup 是一个可以从HTML或XML文件中提取数据的Python库，简单来说，它能将HTML的标签文件解析成树形结构(DOM树)，把一个个标签解析为对象，然后方便地获取到指定标签的对应属性。</p><h2 id="二-爬取流程"><a href="#二-爬取流程" class="headerlink" title="二.爬取流程"></a>二.爬取流程</h2><h3 id="1-导入库文件"><a href="#1-导入库文件" class="headerlink" title="1.导入库文件"></a>1.导入库文件</h3><pre><code>import requestsimport bs4</code></pre><h3 id="2-获取请求并创建对象"><a href="#2-获取请求并创建对象" class="headerlink" title="2.获取请求并创建对象"></a>2.获取请求并创建对象</h3><pre><code>target_url=requests.get(&apos;http://m.shicimingju.com/book/sanguoyanyi.html&apos;)#基本get请求soup=bs4.BeautifulSoup(target_url.text,&apos;html.parser&apos;)#target_url.text为html文件内容，soup为创建的DOM树对象</code></pre><h3 id="3-分析页面结构"><a href="#3-分析页面结构" class="headerlink" title="3.分析页面结构"></a>3.分析页面结构</h3><p>一百二十回的所有链接均在一个页面上，故只需要对一个页面进行爬取，不需要分页处理<br><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/222.PNG" alt="此处输入图片的描述"></p><p>故先获得一百二十回每一回所在页面链接<br>打开控制台发现每一个href都在book-mulu类下的li标签中<br><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/1111.PNG" alt="此处输入图片的描述"></p><pre><code>target_text=soup.select(&apos;.book-mulu li&apos;) #url_list = []for i in target_text:    url_list.append(i.a.get(&apos;href&apos;))</code></pre><p>  对于每一个子页面分别用beautifulsoup创建DOM对象，分析子页面url可知第n回所在页面url为</p><blockquote><p><a href="http://www.shicimingju.com/book/sanguoyanyi/n.html" target="_blank" rel="noopener">http://www.shicimingju.com/book/sanguoyanyi/n.html</a><br>  打开子页面控制台找到文本所在类下chapter_content<br>  <img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/3.PNG" alt="此处输入图片的描述"></p></blockquote><pre><code>download_text=[] #存储文本数据的列表for each_url in url_list:    download_url=requests.get(&apos;http://www.shicimingju.com&apos;+each_url)    small_soup=bs4.BeautifulSoup(download_url.text,&apos;html.parser&apos;)    small_text= small_soup.select(&apos;.chapter_content&apos;)    for i in small_text:        download_text.append(i.get_text()) #获取chapter_content类中的文本内容    print(&apos;爬取三国&apos;)</code></pre><h3 id="4-写入文件"><a href="#4-写入文件" class="headerlink" title="4.写入文件"></a>4.写入文件</h3><pre><code>f=open(&apos;sanguo.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;) #文本与脚本文件在同一目录下for i in download_text:    f.write(i)print(&apos;爬取完成&apos;)</code></pre><p><img src="https://raw.githubusercontent.com/Gavisti/markdown_image/master/4.PNG" alt="此处输入图片的描述"></p><h2 id="三-最后"><a href="#三-最后" class="headerlink" title="三.最后"></a>三.最后</h2><p>利用beautifulsoup爬取文本的流程较为简单，关键在于分析页面结构，找到所需爬取内容的位置。关于beautifulsoup 和rquests的用法涉及到的不多而且较为基础，这段时间我再做一些实践熟悉一下慢慢地把这两个库的基本用法总结出来把。</p>]]></content>
     
@@ -42,7 +105,7 @@
     <link href="https://gavisti.github.io/2018/09/02/Hexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/"/>
     <id>https://gavisti.github.io/2018/09/02/Hexo搭建Github博客/</id>
     <published>2018-09-02T02:12:31.208Z</published>
-    <updated>2018-09-04T13:04:39.146Z</updated>
+    <updated>2018-09-06T12:02:20.786Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hexo搭建Github博客"><a href="#Hexo搭建Github博客" class="headerlink" title="Hexo搭建Github博客"></a>Hexo搭建Github博客</h1><h2 id="一-写在前面"><a href="#一-写在前面" class="headerlink" title="一.写在前面"></a>一.写在前面</h2><p> 这是一篇简陋的Github+Hexo搭建独立博客的教程。因为自己比较事逼，不太喜欢主流的博客平台（折腾两三天以后很是后悔），加上教程还蛮多的，就跟着步骤做了下来。不算太麻烦，除了有一两个坑折磨人，整个流程还是很顺畅的。</p><p> 大概是以下这几个步骤：</p><ol><li>安装Git，node.js</li><li>安装Hexo</li><li>初始化Hexo</li><li>博客本地预览</li><li>部署到Github</li><li>测试</li></ol><h2 id="二-环境的安装"><a href="#二-环境的安装" class="headerlink" title="二.环境的安装"></a>二.环境的安装</h2><h3 id="1-安装Git-node-js"><a href="#1-安装Git-node-js" class="headerlink" title="1.安装Git,node.js"></a>1.安装Git,node.js</h3><p><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git下载地址</a><br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js下载地址</a><br>安装过程比较简洁就不多说了，有问题的话Goole一下</p><h3 id="2-安装、初始化Hexo"><a href="#2-安装、初始化Hexo" class="headerlink" title="2.安装、初始化Hexo"></a>2.安装、初始化Hexo</h3><p><strong>什么是Hexo</strong>：Hexo is a fast, simple &amp; powerful blog framework powered by Node.js.<br>基于node.js的快速、简洁且高效的博客框架</p><p>打开Git Bash输入：</p><pre><code>$ git config --global user.name&quot;yourname&quot;</code></pre><p>$ git config –global user.email”youremail”<br>利用npm命令安装Hexo：</p><pre><code>$ npm install -g hexo-cli</code></pre><p>初始化hexo：<br>新建一个任意路径的文件夹（eg：Myblog)，按住shift右键点击打开命令行，输入：</p><pre><code>hexo init blog</code></pre><p>稍微等待后若提示：</p><pre><code>INFO Start blogging with Hexo!</code></pre><p>则初始化成功</p><h2 id="三-博客本地预览"><a href="#三-博客本地预览" class="headerlink" title="三.博客本地预览"></a>三.博客本地预览</h2><p>经过本地环境配置和hexo安装并初始化后会自动生存一个默认的本地博客界面。所以相关文件都在你刚刚新建的那个文件夹下。<br>按刚刚同样的操作在Myblog文件夹目录下打开命令行，输入：</p><pre><code>$hexo clean</code></pre><p>$hexo g<br>    $hexo s<br>这样一来在浏览器中输入<a href="localhost:4000" target="_blank" rel="noopener">localhost:4000</a>便可预览生成的默认博客界面，应该是这样的：<br><img src="http://www.liuhaihua.cn/wp-content/uploads/2015/11/BziIBb2.png" alt="此处输入图片的描述"></p><h2 id="四-配置到Github"><a href="#四-配置到Github" class="headerlink" title="四.配置到Github"></a>四.配置到Github</h2><h3 id="1-新建一个仓库"><a href="#1-新建一个仓库" class="headerlink" title="1.新建一个仓库"></a>1.新建一个仓库</h3><p>名称为yourname.github.io</p><h3 id="2-添加密钥"><a href="#2-添加密钥" class="headerlink" title="2.添加密钥"></a>2.添加密钥</h3><p>在cmd中输入：</p><pre><code>ssh-keygen -t rsa -C &quot;Github的注册邮箱地址&quot; #注意C是大写</code></pre><p>最后会生成一个<strong>id_rsa.pub</strong>文件（其实就是密钥），用记事本打开复制其内容。<br>打开GitHub配置ssh密钥的页面，新建一个将刚刚复制的密钥粘贴到key中，title可任意。<br>检测是否设置成功，在Git Bash中输入：</p><pre><code>ssh git@github.com</code></pre><blockquote><p><em>这里之所以设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户，为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</em></p></blockquote><h3 id="3-配置博客"><a href="#3-配置博客" class="headerlink" title="3.配置博客"></a>3.配置博客</h3><h4 id="1-用sublime打开Myblog下的-config-yml文件"><a href="#1-用sublime打开Myblog下的-config-yml文件" class="headerlink" title="1.用sublime打开Myblog下的_config.yml文件"></a>1.用sublime打开Myblog下的_config.yml文件</h4><p>每一个参数冒号后都有一个空格，这是一个坑。<br>language和timezone都有规范。<br>另存为UTF-8格式避免中文乱码。<br>deploy参数中的repo设置为你刚刚新建仓库的地址<code>https://github.com/yourname/yourname.github.io</code></p><h3 id="4-远程发布到Github"><a href="#4-远程发布到Github" class="headerlink" title="4.远程发布到Github"></a>4.远程发布到Github</h3><p>在Myblog下打开cmd，输入：</p><pre><code>hexo cleanhexo ghexo d</code></pre><p>等待片刻后跳出输入用户名和密码的界面，输入就好。这样你的博客就部署到你的GitHub上了，打开<a href="yourname.github.io">yourname.github.io</a>就可以看到默认的hexo界面</p><p>这里面有一个大坑，在执行hexo g时一直出现一个错误，是由于今年GitHub修改了部分配置造成的，所以很多教程没有出现这个问题，找了好久才搞清楚原因，下载一个<strong>GCMW-1.14.0</strong>问题解决<br>‘’’问题链接找到补上’’’</p><h2 id="五-更换主题"><a href="#五-更换主题" class="headerlink" title="五.更换主题"></a>五.更换主题</h2><p>默认界面其实还满简洁的，但是功能稍微简陋了些自己又太菜不会修改，所以就到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo规范主题推荐</a>里面选了一款符合自己使用习惯的，然后到他的GitHub主页按照步骤一步步走下来就OK啦</p><h2 id="六-推送博客"><a href="#六-推送博客" class="headerlink" title="六.推送博客"></a>六.推送博客</h2><p>博客存放在Myblog source 的_post中，需要用markdown格式来写，所以不了解的小伙伴不妨花半个小时熟悉一下。还有很多专门的编辑器来提升书写体验。写完之后就需要更新博客，根据不同主题有不同的推送方式，这个自行查看。</p><h2 id="七-最后"><a href="#七-最后" class="headerlink" title="七.最后"></a>七.最后</h2><p>因为搭博客的过程十分凌乱，很多小细节和小问题很有可能被我略过了，整个思路脉络不是很清楚。如果以后有机会一点一点的补充吧。</p>]]></content>
     

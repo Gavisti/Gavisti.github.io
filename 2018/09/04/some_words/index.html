@@ -15,7 +15,7 @@
     <meta name="description" content="网页描述">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Gavisti</title>
+    <title>随 · Gavisti</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -70,6 +70,8 @@
 
     <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -194,14 +196,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >This is Gavisti</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">随</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>This is Gavisti</a>
 </header>
@@ -214,23 +225,23 @@
 
 
 
-height:60vh;
+height:50vh;
 ">
     
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index_1.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            This is Gavisti
-            <!-- 文章页  -->
+            随
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -238,12 +249,43 @@ height:60vh;
             <!-- 主页副标题  -->
             
             
-                You can be more
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">456</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/09/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -344,282 +386,57 @@ height:60vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/06/some words/" >
-            
-                <span>随</span>
-        </a>
-        <div class="abstract-content">
-            今天在论坛上看到的一段话
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/06</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>别灰心,任何值得你去的地方都不会有捷径。写程序也不例外,也不要怀疑自己是否有这方面的天分,编程界闹闹腾腾半个世纪也没闹出半个高斯或者半个牛顿,可见这件事本身不需要太高的天分。编程语言本身是人为创造的,与语言相随的还有语言的哲学和其相应的编程思维,如果忽略掉后面两者是学不好的。所以编程是个循序渐进的过程，就像你学习任何一门外语一样。学习一门外语，仅有词汇和语法是不够的，你还要理解这个国家的文化，需要这个语言的环境氛围，这是一个漫长的过程，不夸张的说，一门语言是通向一个世界的窗口，重要的是你是否愿意去为之付出。论坛里各种开开心心吹牛逼的各种编程大神，都是一行行代码积累出来的。如果编程哪天简单得像广告里如同吃饭喝水看部电影，那编程也就没有什么值得你去期待了。</p>
+<p>===================================<br>今天在论坛上找曾经收录的帖子，突然发现一个不一样的贴叫做“学习编程好痛苦……..”。之所以奇怪是因为收录的帖子里基本都是很硬的干货，点进去才猛然回想起以前看到这段学长说的话的时候心里的感动，以前会因为入门的艰难而捏造出自己不适合的借口来逃避，事实上自己并没有付出应该有的努力，并没有去带着热爱而思考。<br>还是需要真真正正地去尝试。</p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/06/Python3 Beautifulsoup + request 爬取豆瓣图片/" >
-            
-                <span>Python3 Beautifulsoup + request 爬取文本数据</span>
-        </a>
-        <div class="abstract-content">
-            爬虫初试
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://gavisti.github.io">Gavisti</a>
+            <p>原文链接：<a href="https://gavisti.github.io/2018/09/04/some_words/">https://gavisti.github.io/2018/09/04/some_words/</a>
+            <p>发表日期：<a href="https://gavisti.github.io/2018/09/04/some_words/">September 4th 2018, 9:16:17 pm</a>
+            <p>更新日期：<a href="https://gavisti.github.io/2018/09/04/some_words/">September 4th 2018, 9:22:38 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/06</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/04/some_words/" >
-            
-                <span>随</span>
-        </a>
-        <div class="abstract-content">
-            今天在论坛上看到的一段话
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/" >
-            
-                <span>Python3 Beautifulsoup + request 爬取豆瓣图片</span>
-        </a>
-        <div class="abstract-content">
-            爬虫
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/04</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/09/02/Hexo搭建Github博客/" >
-            
-                <span>Hexo搭建Github博客</span>
-        </a>
-        <div class="abstract-content">
-            一个简陋的教程
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/31/test/" >
-            
-                <span>This is a test</span>
-        </a>
-        <div class="abstract-content">
-            Markdown test
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/31</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2018/08/30/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            This is where things start
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/08/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/daisy.jpg >
-    <div class="profile-name">Gavisti</div>
-    
-    <div class="profile-signature">
-        Loving Daisy
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2018/09/06/Python3 Beautifulsoup + request 爬取豆瓣图片/" title= "Python3 Beautifulsoup + request 爬取文本数据">
+                    <div class="nextTitle">Python3 Beautifulsoup + request 爬取文本数据</div>
+                </a>
             
-                <a href="mailto:Gavisti_aaha@163.com" class="iconfont-archer email" title=email ></a>
+        </li>
+        <li class="previous">
             
-        
-    
-        
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2018/09/04/Python3 Beautifulsoup + request 爬取文本数据/" title= "Python3 Beautifulsoup + request 爬取豆瓣图片">
+                    <div class="prevTitle">Python3 Beautifulsoup + request 爬取豆瓣图片</div>
+                </a>
             
-                <a href="//github.com/Gavisti" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/assets/example_qr.png" />
-                </span>
-            
-        
     
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="/atom.xml" class="iconfont-archer rss" target="_blank" title=rss></a>
-            
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= //www.google.com target="_black">Google</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //byrio.org/ target="_black">BYRIO</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.bupt.edu.cn target="_black">BUPT</a>
-                    </span>
-                
-            
-                
-                    <span>
-                        <a href= //www.bilibili.com/ target="_black">Bilibili</a>
-                    </span>
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -704,6 +521,24 @@ height:60vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -923,6 +758,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
